@@ -1,16 +1,15 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { StatisticCards } from '../components/StatisticCards';
 import { PerformanceChart } from '../components/PerformanceChart';
 import { RecentActivity } from '../components/RecentActivity';
 import { UsersTable } from '../components/UsersTable';
 
-const pageVariants = {
+const pageVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' as const } },
 };
 
-const DashboardPage: React.FC = () => {
+const DashboardPage = () => {
   return (
     <motion.div
       variants={pageVariants}

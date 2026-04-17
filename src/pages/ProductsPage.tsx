@@ -1,20 +1,19 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Package, PlusCircle, Search, Tag, Star } from 'lucide-react';
 
-const pageVariants = {
+const pageVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' as const } },
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.07 } },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, scale: 0.96 },
-  visible: { opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 300, damping: 24 } },
+  visible: { opacity: 1, scale: 1, transition: { type: 'spring' as const, stiffness: 300, damping: 24 } },
 };
 
 const mockProducts = [
@@ -32,7 +31,7 @@ const stockColor: Record<string, string> = {
   'غير متاح': 'bg-rose-100 text-rose-700',
 };
 
-const ProductsPage: React.FC = () => {
+const ProductsPage = () => {
   return (
     <motion.div
       variants={pageVariants}

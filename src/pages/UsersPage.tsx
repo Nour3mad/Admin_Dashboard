@@ -1,10 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Users, UserPlus, Search, Filter, MoreVertical, Shield, Mail } from 'lucide-react';
 
-const pageVariants = {
+const pageVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' as const } },
 };
 
 const mockUsers = [
@@ -21,7 +20,7 @@ const statusColor: Record<string, string> = {
   'معلق': 'bg-amber-100 text-amber-700',
 };
 
-const UsersPage: React.FC = () => {
+const UsersPage = () => {
   return (
     <motion.div
       variants={pageVariants}
